@@ -1,14 +1,15 @@
 import type { NextPage } from 'next';
 import styled from 'styled-components';
-import Post from '@components/Compound/Post'
+import Post from '@components/Compound/Post';
+import StickyHeader from '@components/StickyHeader';
 
-const Container = styled.div`
+const MainLayout = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
 
   width: 100%;
-  height: 100vh;
+  height: 200vh;
 
   ${({ theme }) => theme.mobile} {
     width: 300px;
@@ -18,18 +19,21 @@ const Container = styled.div`
 
 const Home: NextPage = () => {
   return (
-    <Container>
-      <Post>
-        <Post.Title />
-        <Post.Comment />
-        <Post.Buttons />
-        <ul>
-          <li>test</li>
-          <li>test</li>
-          <li>test</li>
-        </ul>
-      </Post>
-    </Container>
+    <>
+      <StickyHeader />
+      <MainLayout>
+        <Post>
+          <Post.Title />
+          <Post.Comment />
+          <Post.Buttons />
+          <ul>
+            <li>test</li>
+            <li>test</li>
+            <li>test</li>
+          </ul>
+        </Post>
+      </MainLayout>
+    </>
   );
 };
 
